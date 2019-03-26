@@ -80,5 +80,7 @@ http {
         ~image/                    30d;
     }
 
+    server_names_hash_bucket_size {{ nginx.server_names_hash_bucket_size }};
+
     include {{ nginx.prefix.config }}/http.d/*.conf;
 }
