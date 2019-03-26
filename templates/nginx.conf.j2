@@ -73,5 +73,12 @@ http {
         font/otf
     ;
 
+    map $sent_http_content_type $expires {
+        default                    epoch;
+        text/css                   max;
+        application/javascript     max;
+        ~image/                    30d;
+    }
+
     include {{ nginx.prefix.config }}/http.d/*.conf;
 }
